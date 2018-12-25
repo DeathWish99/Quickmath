@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MemberStageActivity">
+
+    <Button
+        android:id="@+id/btn_setting"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_dehaze_black_24dp"
+        android:layout_margin="20dp"/>
+
+    <TextView
+        android:id="@+id/tv_stage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stage"
+        android:layout_centerHorizontal="true"
+        android:textSize="35sp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/colorBlack"/>
+
+    <Button
+        android:id="@+id/stage_1"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/tv_stage"
+        android:background="@drawable/button_bg_round"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:text="1"
+        android:textSize="20dp"/>
+    <Button
+        android:id="@+id/stage_2"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/tv_stage"
+        android:background="@drawable/button_bg_round"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:text="2"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/stage_3"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/tv_stage"
+        android:background="@drawable/button_bg_round"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:text="3"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/stage_4"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/stage_1"
+        android:background="@drawable/button_bg_round"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="90dp"
+        android:text="4"
+        android:textSize="20dp"/>
+    <Button
+        android:id="@+id/stage_5"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/stage_1"
+        android:background="@drawable/button_bg_round"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="90dp"
+        android:text="5"
+        android:textSize="20dp"/>
+
+
+</RelativeLayout>

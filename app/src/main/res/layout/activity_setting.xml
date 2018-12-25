@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textSize="30sp"
+        android:layout_gravity="left"
+        android:layout_margin="30dp"
+        android:textColor="@color/colorBlack"/>
+
+    <Button
+        android:id="@+id/btn_profile"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Profile"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btn_language"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Language"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btn_music"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Music"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btn_vibrate"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Vibrate"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btn_aboutus"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="About Us"
+        android:layout_marginTop="100dp"/>
+
+
+
+</LinearLayout>

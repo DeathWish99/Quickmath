@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LanguageActivity">
+
+    <TextView
+        android:id="@+id/tv_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Language"
+        android:textSize="30sp"
+        android:layout_gravity="left"
+        android:layout_margin="30dp"
+        android:textColor="@color/colorBlack"/>
+
+    <Button
+        android:id="@+id/btn_english"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_language"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="English"/>
+
+    <Button
+        android:id="@+id/btn_indo"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_english"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Indonesian"/>
+
+</RelativeLayout>
