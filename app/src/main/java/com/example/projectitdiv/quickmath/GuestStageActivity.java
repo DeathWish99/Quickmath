@@ -25,6 +25,7 @@ public class GuestStageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GuestStageActivity.this, MemberStageActivity.class);
+                intent.putExtra("hasPlayed", false);
                 startActivity(intent);
                 finish();
             }
