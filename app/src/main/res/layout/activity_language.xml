@@ -34,4 +34,22 @@
         android:layout_marginTop="30dp"
         android:text="Indonesian"/>
 
+    <Button
+        android:id="@+id/btn_jpn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_english"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="108dp"
+        android:text="Japan" />
+
+    <Button
+        android:id="@+id/btn_korea"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_english"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="184dp"
+        android:text="Korean" />
+
 </RelativeLayout>
