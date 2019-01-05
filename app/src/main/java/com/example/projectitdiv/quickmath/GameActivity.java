@@ -1,6 +1,9 @@
 package com.example.projectitdiv.quickmath;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +17,6 @@ public class GameActivity extends AppCompatActivity {
 
     TextView tvScore, tvQuestion, tvCounter;
     Button btnAnswer1, btnAnswer2, btnAnswer3, btnAnswer4, btnAnswer5, btnAnswer6;
-
     String stageId;
     int total, counter = 1, score = 0;
 
@@ -62,6 +64,7 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
                 else {
                     //All toasts are for bugfixing
@@ -92,6 +95,7 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
                 else {
                     Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
@@ -121,6 +125,7 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
                 else {
                     Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
@@ -150,6 +155,7 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
                 else {
                     Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
@@ -179,6 +185,7 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
                 else {
                     Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
@@ -208,6 +215,7 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
                 else {
                     Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
@@ -488,5 +496,27 @@ public class GameActivity extends AppCompatActivity {
         startActivity(intent1);
         finish();
     }
+//    private void customVibratePatternCorrect() {
+//        // 0 : Start without a delay
+//        // 400 : Vibrate for 400 milliseconds
+//        // 200 : Pause for 200 milliseconds
+//        // 400 : Vibrate for 400 milliseconds
+//        long[] mVibratePattern = new long[]{0, 400, 200, 400};
+//
+//        // -1 : Do not repeat this pattern
+//        // pass 0 if you want to repeat this pattern from 0th index
+//        vibrator.vibrate(mVibratePattern, -1);
+//    }
+//    private void customVibratePatternFalse() {
+//        // 0 : Start without a delay
+//        // 400 : Vibrate for 400 milliseconds
+//        // 200 : Pause for 200 milliseconds
+//        // 400 : Vibrate for 400 milliseconds
+//        long[] mVibratePattern = new long[]{0, 800};
+//
+//        // -1 : Do not repeat this pattern
+//        // pass 0 if you want to repeat this pattern from 0th index
+//        vibrator.vibrate(mVibratePattern, -1);
+//    }
 }
 
