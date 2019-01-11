@@ -23,6 +23,30 @@
         android:layout_marginTop="30dp"
         android:textColor="@color/colorBlack"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
+        android:layout_margin="30dp">
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Score: "
+            android:textColor="@color/colorBlack"
+            />
+        <TextView
+            android:id="@+id/tv_score1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+
+
     <Button
         android:id="@+id/stage_1"
         android:layout_width="65dp"
@@ -30,7 +54,7 @@
         android:layout_below="@id/tv_stage"
         android:background="@drawable/button_bg_round"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="15dp"
         android:text="1"
         android:textSize="20dp"/>
     <Button
@@ -40,7 +64,7 @@
         android:layout_below="@id/tv_stage"
         android:background="@drawable/button_bg_round"
         android:layout_marginTop="15dp"
-        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="110dp"
         android:text="2"
         android:textSize="20dp"/>
 
@@ -52,7 +76,7 @@
         android:background="@drawable/button_bg_round"
         android:layout_alignParentRight="true"
         android:layout_marginTop="15dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="110dp"
         android:text="3"
         android:textSize="20dp"/>
 
@@ -60,10 +84,11 @@
         android:id="@+id/stage_4"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_below="@id/stage_1"
+        android:layout_below="@id/tv_stage"
+        android:layout_alignParentRight="true"
         android:background="@drawable/button_bg_round"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="90dp"
+        android:layout_marginRight="15dp"
         android:text="4"
         android:textSize="20dp"/>
     <Button
@@ -72,10 +97,44 @@
         android:layout_height="65dp"
         android:layout_below="@id/stage_1"
         android:background="@drawable/button_bg_round"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:text="5"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/stage_6"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/stage_1"
+        android:background="@drawable/button_bg_round"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="110dp"
+        android:text="6"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/stage_7"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/stage_1"
+        android:background="@drawable/button_bg_round"
         android:layout_alignParentRight="true"
         android:layout_marginTop="15dp"
-        android:layout_marginRight="90dp"
-        android:text="5"
+        android:layout_marginRight="110dp"
+        android:text="7"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/stage_8"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/stage_1"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_bg_round"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:text="8"
         android:textSize="20dp"/>
 
 
