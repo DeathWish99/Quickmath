@@ -1,7 +1,7 @@
 package com.example.projectitdiv.quickmath;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -138,8 +138,3 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 }
-
-
-
-
-
