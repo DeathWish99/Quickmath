@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quickmath</string>
+    <string name="settings">設定</string>
+    <string name="profile">プロフィール</string>
+    <string name="language">言語</string>
+    <string name="music">音楽</string>
+    <string name="vibrate">震う</string>
+    <string name="aboutus">私たちに関しては</string>
+    <string name="question">問題</string>
+    <string name="scores">"スコア : "</string>
+    <string name="score">スコア</string>
+    <string name="stage">ステージ</string>
+    <string name="name">"名前 : "</string>
+    <string name="gender">"性別 : "</string>
+    <string name="phone">"フォン : "</string>
+    <string name="email">"Eメール : "</string>
+    <string name="indonesian">Indonesian</string>
+    <string name="level">レベル</string>
+    <string name="loginorsign">ログインまたはサインアップ</string>
+    <string name="skipstep">このステップを飛ばす</string>
+    <string name="mobilenumber">携帯電話番号</string>
+    <string name="emailaddress">電子メールアドレス</string>
+    <string name="english">English</string>
+    <string name="japan">日本語</string>
+    <string name="korean">한국어</string>
+</resources>

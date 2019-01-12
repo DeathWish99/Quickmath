@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quickmath</string>
+    <string name="korean">한국어</string>
+    <string name="japan">日本語</string>
+    <string name="english">English</string>
+    <string name="indonesian">Indonesian</string>
+    <string name="stage">단계</string>
+    <string name="scores">"점수 : "</string>
+    <string name="score">점수</string>
+    <string name="question">의문</string>
+    <string name="profile">프로필</string>
+    <string name="name">명의 :</string>
+    <string name="gender">성별 :</string>
+    <string name="phone">전화 :</string>
+    <string name="email">이메일 :</string>
+    <string name="settings">설정</string>
+    <string name="music">음악</string>
+    <string name="vibrate">떨리다</string>
+    <string name="aboutus">회사 소개</string>
+    <string name="language">언어</string>
+    <string name="skipstep">이 단계를 건너 뛰</string>
+    <string name="mobilenumber">휴대 전화 번호</string>
+    <string name="emailaddress">이메일 주소</string>
+    <string name="loginorsign">로그인 또는 가입</string>
+    <string name="level">수평</string>
+</resources>

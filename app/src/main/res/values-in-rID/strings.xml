@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quickmath</string>
+    <string name="indonesian">Indonesia</string>
+    <string name="korean">한국어</string>
+    <string name="question">Pertanyaan</string>
+    <string name="score">Skor</string>
+    <string name="scores">Skor:</string>
+    <string name="stage">Tingkat</string>
+    <string name="level">Level</string>
+    <string name="language">Bahasa</string>
+    <string name="loginorsign">Masuk atau Daftar</string>
+    <string name="profile">Profil</string>
+    <string name="name">Nama:</string>
+    <string name="gender">Jenis Kelamin:</string>
+    <string name="phone">Telepon:</string>
+    <string name="email">Email:</string>
+    <string name="settings">Pengaturan</string>
+    <string name="music">Musik</string>
+    <string name="vibrate">Getaran</string>
+    <string name="aboutus">Tentang Kami</string>
+    <string name="skipstep">Lewati Tahap Ini</string>
+    <string name="mobilenumber">Nomor telepon</string>
+    <string name="emailaddress">Alamat Email</string>
+    <string name="korean">한국어</string>
+    <string name="japan">日本語</string>
+    <string name="english">English</string>
+</resources>

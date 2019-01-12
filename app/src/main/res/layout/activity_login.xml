@@ -12,10 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Login or Signup"
-        android:textSize="40sp"
         android:layout_marginTop="20dp"
-        android:textColor="@color/colorBlack"/>
+        android:text="@string/loginorsign"
+        android:textColor="@color/colorBlack"
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/btn_google"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:text="Mobile Number"/>
+        android:text="@string/mobilenumber" />
 
     <Button
         android:id="@+id/btn_email"
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:text="Email Address"/>
+        android:text="@string/emailaddress" />
 
     <Button
         android:id="@+id/btn_skip"
@@ -56,6 +56,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50sp"
-        android:text="Skip this step"/>
+        android:text="@string/skipstep" />
 
 </LinearLayout>

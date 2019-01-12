@@ -15,7 +15,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="113dp"
         android:layout_marginRight="113dp"
-        android:text="Stage"
+        android:text="@string/stage"
         android:textColor="@color/colorBlack"
         android:textSize="35sp" />
 
@@ -44,7 +44,7 @@
         android:layout_marginEnd="-36dp"
         android:layout_marginBottom="108dp"
         android:contentDescription="Score"
-        android:text="Score"
+        android:text="@string/score"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <TextView
@@ -56,7 +56,7 @@
         android:layout_marginEnd="-37dp"
         android:layout_marginBottom="65dp"
         android:contentDescription="Score"
-        android:text="Level"
+        android:text="@string/level"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <ImageView

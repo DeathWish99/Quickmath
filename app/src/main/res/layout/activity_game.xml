@@ -30,11 +30,11 @@
         android:id="@+id/tv_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Question"
         android:layout_centerHorizontal="true"
-        android:textSize="35sp"
         android:layout_marginTop="80dp"
-        android:textColor="@color/colorBlack"/>
+        android:text="@string/question"
+        android:textColor="@color/colorBlack"
+        android:textSize="35sp" />
 
     <Button
         android:id="@+id/btn_answer1"
