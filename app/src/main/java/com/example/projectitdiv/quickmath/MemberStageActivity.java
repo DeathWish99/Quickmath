@@ -52,7 +52,6 @@ public class MemberStageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MemberStageActivity.this, SettingActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -62,7 +61,6 @@ public class MemberStageActivity extends AppCompatActivity {
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
                 intent.putExtra(EXTRA_ID, stage1.getText().toString());
                 startActivity(intent);
-                finish();
             }
         });
         stage2.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +69,6 @@ public class MemberStageActivity extends AppCompatActivity {
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
                 intent.putExtra(EXTRA_ID, stage2.getText().toString());
                 startActivity(intent);
-                finish();
             }
         });
         stage3.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +77,6 @@ public class MemberStageActivity extends AppCompatActivity {
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
                 intent.putExtra(EXTRA_ID, stage3.getText().toString());
                 startActivity(intent);
-                finish();
             }
         });
         stage4.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +85,6 @@ public class MemberStageActivity extends AppCompatActivity {
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
                 intent.putExtra(EXTRA_ID, stage4.getText().toString());
                 startActivity(intent);
-                finish();
             }
         });
         stage5.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +93,6 @@ public class MemberStageActivity extends AppCompatActivity {
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
                 intent.putExtra(EXTRA_ID, stage5.getText().toString());
                 startActivity(intent);
-                finish();
             }
         });
         stage6.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +101,6 @@ public class MemberStageActivity extends AppCompatActivity {
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
                 intent.putExtra(EXTRA_ID, stage6.getText().toString());
                 startActivity(intent);
-                finish();
             }
         });
         stage7.setOnClickListener(new View.OnClickListener() {
@@ -116,7 +109,6 @@ public class MemberStageActivity extends AppCompatActivity {
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
                 intent.putExtra(EXTRA_ID, stage7.getText().toString());
                 startActivity(intent);
-                finish();
             }
         });
         stage8.setOnClickListener(new View.OnClickListener() {
@@ -125,7 +117,6 @@ public class MemberStageActivity extends AppCompatActivity {
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
                 intent.putExtra(EXTRA_ID, stage8.getText().toString());
                 startActivity(intent);
-                finish();
             }
         });
 

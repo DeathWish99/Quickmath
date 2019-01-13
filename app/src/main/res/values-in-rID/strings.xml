@@ -22,7 +22,6 @@
     <string name="skipstep">Lewati Tahap Ini</string>
     <string name="mobilenumber">Nomor telepon</string>
     <string name="emailaddress">Alamat Email</string>
-    <string name="korean">한국어</string>
     <string name="japan">日本語</string>
     <string name="english">English</string>
 </resources>

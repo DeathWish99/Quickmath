@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.projectitdiv.quickmath">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
 
@@ -12,7 +14,8 @@
         android:supportsRtl="true"
         android:configChanges="locale|orientation"
         android:theme="@style/AppTheme">
-        <activity android:name=".GuestStageActivity" />
+        <activity android:name=".GuestStageActivity"
+            android:parentActivityName=".LoginActivity"/>
         <activity android:name=".MemberStageActivity" />
         <activity android:name=".GameActivity" />
         <activity android:name=".LoginActivity">
@@ -22,9 +25,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".LanguageActivity"></activity>
+        <activity android:name=".SettingActivity"
+            android:parentActivityName=".GuestStageActivity"/>
+        <activity android:name=".ProfileActivity"
+            android:parentActivityName=".SettingActivity"/>
+        <activity android:name=".LanguageActivity"
+            android:parentActivityName=".SettingActivity"></activity>
         <service android:enabled="true" android:name=".BackgroundSoundService" />
     </application>
 
