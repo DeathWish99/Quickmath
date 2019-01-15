@@ -31,6 +31,7 @@ public class SettingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SettingActivity.this, ProfileActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -38,7 +39,6 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SettingActivity.this, LanguageActivity.class);
-                startActivity(intent);
             }
         });
 

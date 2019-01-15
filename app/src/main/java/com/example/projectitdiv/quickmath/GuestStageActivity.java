@@ -27,6 +27,7 @@ public class GuestStageActivity extends AppCompatActivity {
                 Intent intent = new Intent(GuestStageActivity.this, MemberStageActivity.class);
                 intent.putExtra("hasPlayed", false);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -35,6 +36,7 @@ public class GuestStageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GuestStageActivity.this, SettingActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
