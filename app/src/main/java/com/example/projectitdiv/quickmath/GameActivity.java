@@ -68,8 +68,12 @@ public class GameActivity extends AppCompatActivity {
                 }
                 else {
                     //All toasts are for bugfixing
-                    Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
+                    counter++;
+                    tvCounter.setText(counter + "/10");
+                    GenerateQuestion();
+                    GenerateAnswers();
                     DecreaseScore();
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
 
                 if(counter > 10) {
@@ -98,8 +102,12 @@ public class GameActivity extends AppCompatActivity {
                     ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
                 else {
-                    Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
+                    counter++;
+                    tvCounter.setText(counter + "/10");
+                    GenerateQuestion();
+                    GenerateAnswers();
                     DecreaseScore();
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
 
                 if(counter > 10) {
@@ -128,8 +136,12 @@ public class GameActivity extends AppCompatActivity {
                     ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
                 else {
-                    Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
+                    counter++;
+                    tvCounter.setText(counter + "/10");
+                    GenerateQuestion();
+                    GenerateAnswers();
                     DecreaseScore();
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
 
                 if(counter > 10) {
@@ -158,8 +170,12 @@ public class GameActivity extends AppCompatActivity {
                     ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
                 else {
-                    Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
+                    counter++;
+                    tvCounter.setText(counter + "/10");
+                    GenerateQuestion();
+                    GenerateAnswers();
                     DecreaseScore();
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
 
                 if(counter > 10) {
@@ -188,8 +204,12 @@ public class GameActivity extends AppCompatActivity {
                     ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
                 else {
-                    Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
+                    counter++;
+                    tvCounter.setText(counter + "/10");
+                    GenerateQuestion();
+                    GenerateAnswers();
                     DecreaseScore();
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
 
                 if(counter > 10) {
@@ -218,8 +238,12 @@ public class GameActivity extends AppCompatActivity {
                     ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
                 else {
-                    Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
+                    counter++;
+                    tvCounter.setText(counter + "/10");
+                    GenerateQuestion();
+                    GenerateAnswers();
                     DecreaseScore();
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
 
                 if(counter > 10) {
