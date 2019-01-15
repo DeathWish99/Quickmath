@@ -2,6 +2,7 @@ package com.example.projectitdiv.quickmath;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
@@ -14,14 +15,27 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
-
+    AudioManager amanager;
     TextView tvScore, tvQuestion, tvCounter;
     Button btnAnswer1, btnAnswer2, btnAnswer3, btnAnswer4, btnAnswer5, btnAnswer6;
     String stageId;
     int total, counter = 1, score = 0;
 
     public static final String EXTRA_SCORE = "EXTRA_SCORE";
-
+    /* Bagian FIX BUG MUSIC */
+    @Override
+    public void onPause(){
+        amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
+        amanager.setStreamMute(AudioManager.STREAM_MUSIC, true);
+        super.onPause();
+    }
+    @Override
+    public void onResume(){
+        amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
+        amanager.setStreamMute(AudioManager.STREAM_MUSIC, false);
+        super.onResume();
+    }
+    /*Sampai sini */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +78,7 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(500);
                 }
                 else {
                     //All toasts are for bugfixing
@@ -95,7 +109,7 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(500);
                 }
                 else {
                     Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
@@ -125,7 +139,7 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(500);
                 }
                 else {
                     Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
@@ -155,7 +169,7 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(500);
                 }
                 else {
                     Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
@@ -185,7 +199,7 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(500);
                 }
                 else {
                     Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();
@@ -215,7 +229,7 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
+                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(500);
                 }
                 else {
                     Toast.makeText(GameActivity.this, "Total: " + total + " Value: " + value, Toast.LENGTH_SHORT).show();

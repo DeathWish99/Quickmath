@@ -1,6 +1,7 @@
 package com.example.projectitdiv.quickmath;
 
 import android.content.SharedPreferences;
+import android.media.AudioManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import java.util.Locale;
@@ -15,12 +16,25 @@ import android.widget.Button;
 
 
 public class LanguageActivity extends AppCompatActivity {
-
+    AudioManager amanager;
     Button btn_english;
     Button btn_indo;
     Button btn_jpn;
     Button btn_korea;
-
+    /* Bagian FIX BUG MUSIC */
+    @Override
+    public void onPause(){
+        amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
+        amanager.setStreamMute(AudioManager.STREAM_MUSIC, true);
+        super.onPause();
+    }
+    @Override
+    public void onResume(){
+        amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
+        amanager.setStreamMute(AudioManager.STREAM_MUSIC, false);
+        super.onResume();
+    }
+    /*Sampai sini */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
