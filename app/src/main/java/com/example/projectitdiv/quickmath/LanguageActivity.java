@@ -1,6 +1,7 @@
 package com.example.projectitdiv.quickmath;
 
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import java.util.Locale;
@@ -78,12 +79,28 @@ public class LanguageActivity extends AppCompatActivity {
 //        startActivity(refresh);
 //    }
 
+    @SuppressWarnings("deprecation")
     private void setLocale(String lang){
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        Resources resources = getResources();
+        //Configuration config = new Configuration();
+        Configuration config = resources.getConfiguration();
+        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
+            config.setLocale(locale);
+        }
+        else{
+            config.locale=locale;
+        }
+
+        //getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            getApplicationContext().createConfigurationContext(config);
+        } else {
+            resources.updateConfiguration(config,displayMetrics);
+        }
         SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
         editor.putString("My_Lang", lang);
         editor.apply();
