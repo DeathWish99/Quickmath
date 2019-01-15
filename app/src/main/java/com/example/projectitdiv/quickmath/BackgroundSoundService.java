@@ -28,9 +28,6 @@ public class BackgroundSoundService extends Service {
         }
         return START_STICKY;
     }
-public void onPause(){
-
-}
     public void onStart(Intent intent, int startId) {
 
     }
