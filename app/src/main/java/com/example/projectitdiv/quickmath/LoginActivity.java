@@ -38,11 +38,11 @@ public class LoginActivity extends AppCompatActivity {
     GoogleApiClient mGoogleApiClient;
     FirebaseAuth.AuthStateListener mAuthListener;
 
-    @Override
+   /* @Override
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
-    }
+    }*/
 
 
     @Override
