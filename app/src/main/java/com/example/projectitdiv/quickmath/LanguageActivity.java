@@ -36,6 +36,7 @@ public class LanguageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 setLocale("en");
                 recreate();
+                Intent intent = new Intent();
             }
         });
 
@@ -65,7 +66,7 @@ public class LanguageActivity extends AppCompatActivity {
 
     }
 
-//    public void setLocale(String lang) {
+    //    public void setLocale(String lang) {
 //        Locale myLocale = new Locale(lang);
 //        Resources res = getResources();
 //        DisplayMetrics dm = res.getDisplayMetrics();
