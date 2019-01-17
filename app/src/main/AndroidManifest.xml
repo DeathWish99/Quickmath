@@ -31,7 +31,10 @@
             android:parentActivityName=".SettingActivity"/>
         <activity android:name=".LanguageActivity"
             android:parentActivityName=".SettingActivity"></activity>
-        <service android:enabled="true" android:name=".BackgroundSoundService" />
+        <!--<service android:enabled="true" android:name=".BackgroundSoundService" />-->
+        <service
+            android:name=".BackgroundSoundService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
-
 </manifest>
