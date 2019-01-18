@@ -1,18 +1,11 @@
 package com.example.projectitdiv.quickmath;
 
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.os.Handler;
-import android.os.IBinder;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -37,32 +30,21 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import java.lang.reflect.Member;
 
 public class LoginActivity extends AppCompatActivity {
-    int ret=0;
-    AudioManager amanager;
+
     Button btnGoogle, btnFacebook, btnMobile, btnEmail, btnSkip;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private final static int RC_SIGN_IN = 2;
+
     GoogleApiClient mGoogleApiClient;
     FirebaseAuth.AuthStateListener mAuthListener;
+
    /* @Override
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }*/
-   /* Bagian FIX BUG MUSIC */
-   @Override
-   public void onPause(){
-       amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
-       amanager.setStreamMute(AudioManager.STREAM_MUSIC, true);
-       super.onPause();
-   }
-    @Override
-    public void onResume(){
-        amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
-        amanager.setStreamMute(AudioManager.STREAM_MUSIC, false);
-        super.onResume();
-    }
-    /*Sampai sini */
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         btnMobile = findViewById(R.id.btn_mobile);
         btnSkip = findViewById(R.id.btn_skip);
         mAuth = FirebaseAuth.getInstance();
+
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

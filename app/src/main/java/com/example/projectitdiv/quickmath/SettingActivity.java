@@ -13,25 +13,14 @@ public class SettingActivity extends AppCompatActivity {
     Button btnProfile, btnLanguage, btnMusic, btnVibrate, btnAboutus;
     int f = 0,j=0;
     AudioManager audioManager;
-    /* Bagian FIX BUG MUSIC */
-    @Override
-    public void onPause(){
-        audioManager = (AudioManager)getSystemService(AUDIO_SERVICE);
-        audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
-        super.onPause();
-    }
-    @Override
-    public void onResume(){
-        audioManager = (AudioManager)getSystemService(AUDIO_SERVICE);
-        audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
-        super.onResume();
-    }
-    /*Sampai sini */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         audioManager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
+//        audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+        audioManager.setStreamVolume(AudioManager.STREAM_NOTIFICATION, 0, AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
+        Toast.makeText(SettingActivity.this, "Vibrate Disabled", Toast.LENGTH_SHORT).show();
         btnProfile = findViewById(R.id.btn_profile);
         btnLanguage = findViewById(R.id.btn_language);
         btnMusic = findViewById(R.id.btn_music);
@@ -52,21 +41,7 @@ public class SettingActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btnVibrate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                audioManager = (AudioManager)getSystemService(AUDIO_SERVICE);
-                if (j == 0) {
-                    audioManager.setStreamMute(AudioManager.STREAM_RING, false);
-                    Toast.makeText(SettingActivity.this, "Vibration Disabled", Toast.LENGTH_SHORT).show();
-                    j=1;
-                } else if(j==1){
-                    audioManager.setStreamMute(AudioManager.STREAM_RING, true);
-                    Toast.makeText(SettingActivity.this, "Vibration Enabled", Toast.LENGTH_SHORT).show();
-                    j=0;
-                }
-            }
-        });
+
         btnMusic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

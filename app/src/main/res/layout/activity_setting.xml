@@ -49,13 +49,6 @@
         android:layout_marginTop="10dp"
         android:text="@string/vibrate" />
 
-    <TextView
-        android:id="@+id/bensound"
-        android:layout_marginLeft="90dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Music: www.bensound.com" />
-
     <Button
         android:id="@+id/btn_aboutus"
         android:layout_width="150dp"
@@ -63,6 +56,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="100dp"
         android:text="@string/aboutus" />
+
 
 
 </LinearLayout>
