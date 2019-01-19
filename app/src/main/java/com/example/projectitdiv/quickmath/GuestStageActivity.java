@@ -12,7 +12,6 @@ public class GuestStageActivity extends AppCompatActivity {
     AudioManager amanager;
     TextView tvStage;
     Button btnStage, btnSetting;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +38,6 @@ public class GuestStageActivity extends AppCompatActivity {
             }
         });
     }
-    /* Bagian FIX BUG MUSIC */
     @Override
     public void onPause(){
         amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
@@ -52,5 +50,4 @@ public class GuestStageActivity extends AppCompatActivity {
         amanager.setStreamMute(AudioManager.STREAM_MUSIC, false);
         super.onResume();
     }
-    /*Sampai sini */
 }

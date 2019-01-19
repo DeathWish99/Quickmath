@@ -19,10 +19,8 @@ public class GameActivity extends AppCompatActivity {
     TextView tvScore, tvQuestion, tvCounter;
     Button btnAnswer1, btnAnswer2, btnAnswer3, btnAnswer4, btnAnswer5, btnAnswer6;
     String stageId;
-    int total, counter = 1, score = 0;
-
+    int total, counter = 1, score = 0,vibration;
     public static final String EXTRA_SCORE = "EXTRA_SCORE";
-    /* Bagian FIX BUG MUSIC */
     @Override
     public void onPause(){
         amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
@@ -35,15 +33,17 @@ public class GameActivity extends AppCompatActivity {
         amanager.setStreamMute(AudioManager.STREAM_MUSIC, false);
         super.onResume();
     }
-    /*Sampai sini */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
         Intent intent = getIntent();
         stageId = intent.getStringExtra("EXTRA_ID");
-
+        try {
+            vibration=SettingActivity.getActivityInstance().getData();
+        } catch (Exception e) {
+            vibration=300;
+        }
         tvScore = findViewById(R.id.tv_score);
         tvQuestion = findViewById(R.id.tv_question);
         tvCounter = findViewById(R.id.tv_counter);
@@ -78,7 +78,6 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(500);
                 }
                 else {
                     //All toasts are for bugfixing
@@ -87,7 +86,6 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     DecreaseScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
 
                 if(counter > 10) {
@@ -113,7 +111,6 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(500);
                 }
                 else {
                     counter++;
@@ -121,7 +118,6 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     DecreaseScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
 
                 if(counter > 10) {
@@ -147,7 +143,6 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(500);
                 }
                 else {
                     counter++;
@@ -155,7 +150,6 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     DecreaseScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
 
                 if(counter > 10) {
@@ -181,7 +175,6 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(500);
                 }
                 else {
                     counter++;
@@ -189,7 +182,6 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     DecreaseScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
 
                 if(counter > 10) {
@@ -215,7 +207,6 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(500);
                 }
                 else {
                     counter++;
@@ -223,7 +214,6 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     DecreaseScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
 
                 if(counter > 10) {
@@ -249,7 +239,6 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     AddScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(500);
                 }
                 else {
                     counter++;
@@ -257,7 +246,6 @@ public class GameActivity extends AppCompatActivity {
                     GenerateQuestion();
                     GenerateAnswers();
                     DecreaseScore();
-                    ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
                 }
 
                 if(counter > 10) {
@@ -450,7 +438,6 @@ public class GameActivity extends AppCompatActivity {
             }
         }
     }
-
     //Generates possible answers.
     protected void GenerateAnswers() {
         Random rand = new Random();
@@ -516,14 +503,13 @@ public class GameActivity extends AppCompatActivity {
     protected void AddScore() {
         score += 100;
         String textScore = "Score: " + score;
-
         tvScore.setText(textScore);
     }
 
     protected void DecreaseScore() {
         score -= 100;
         String textScore = "Score: " + score;
-
+        ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(vibration);
         tvScore.setText(textScore);
     }
 

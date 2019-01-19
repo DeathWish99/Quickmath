@@ -11,7 +11,6 @@ import android.util.Log;
 public class BackgroundSoundService extends Service {
     MediaPlayer player;
     int a=0;
-    int currentPosition=0;
     @Override
     public IBinder onBind(Intent intent) {
         return null;
@@ -30,10 +29,6 @@ public class BackgroundSoundService extends Service {
     }
     public void onStart(Intent intent, int startId) {
 
-    }
-    public IBinder onUnBind(Intent arg0) {
-        // TO DO Auto-generated method
-        return null;
     }
     @Override
     public void onDestroy() {

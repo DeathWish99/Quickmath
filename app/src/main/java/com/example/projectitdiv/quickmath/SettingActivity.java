@@ -11,9 +11,9 @@ import android.widget.Toast;
 public class SettingActivity extends AppCompatActivity {
 
     Button btnProfile, btnLanguage, btnMusic, btnVibrate, btnAboutus;
-    int f = 0,j=0;
+    int f ,j,data;
     AudioManager audioManager;
-    /* Bagian FIX BUG MUSIC */
+    static SettingActivity INSTANCE;
     @Override
     public void onPause(){
         audioManager = (AudioManager)getSystemService(AUDIO_SERVICE);
@@ -26,11 +26,12 @@ public class SettingActivity extends AppCompatActivity {
         audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
         super.onResume();
     }
-    /*Sampai sini */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        INSTANCE=this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        j=f=0;
         audioManager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
         btnProfile = findViewById(R.id.btn_profile);
         btnLanguage = findViewById(R.id.btn_language);
@@ -55,13 +56,12 @@ public class SettingActivity extends AppCompatActivity {
         btnVibrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                audioManager = (AudioManager)getSystemService(AUDIO_SERVICE);
                 if (j == 0) {
-                    audioManager.setStreamMute(AudioManager.STREAM_RING, false);
+                    data=1;
                     Toast.makeText(SettingActivity.this, "Vibration Disabled", Toast.LENGTH_SHORT).show();
                     j=1;
                 } else if(j==1){
-                    audioManager.setStreamMute(AudioManager.STREAM_RING, true);
+                    data=300;
                     Toast.makeText(SettingActivity.this, "Vibration Enabled", Toast.LENGTH_SHORT).show();
                     j=0;
                 }
@@ -84,4 +84,14 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
     }
+    public static SettingActivity getActivityInstance()
+    {
+        return INSTANCE;
+    }
+
+    public int getData()
+    {
+        return this.data;
+    }
 }
+
