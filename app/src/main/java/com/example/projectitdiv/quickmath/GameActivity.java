@@ -19,9 +19,9 @@ public class GameActivity extends AppCompatActivity {
     TextView tvScore, tvQuestion, tvCounter;
     Button btnAnswer1, btnAnswer2, btnAnswer3, btnAnswer4, btnAnswer5, btnAnswer6;
     String stageId;
-    int total, counter = 1, score = 0;
-
+    int total, counter = 1, score = 0,vibration;
     public static final String EXTRA_SCORE = "EXTRA_SCORE";
+
     /* Bagian FIX BUG MUSIC */
     @Override
     public void onPause(){
@@ -43,6 +43,10 @@ public class GameActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         stageId = intent.getStringExtra("EXTRA_ID");
+
+        //bagian get intent dari setting activity
+        Intent abcde = getIntent();
+        vibration = abcde.getIntExtra("intVariableName", 5000);
 
         tvScore = findViewById(R.id.tv_score);
         tvQuestion = findViewById(R.id.tv_question);
@@ -450,7 +454,6 @@ public class GameActivity extends AppCompatActivity {
             }
         }
     }
-
     //Generates possible answers.
     protected void GenerateAnswers() {
         Random rand = new Random();
@@ -516,7 +519,6 @@ public class GameActivity extends AppCompatActivity {
     protected void AddScore() {
         score += 100;
         String textScore = "Score: " + score;
-
         tvScore.setText(textScore);
     }
 
@@ -524,6 +526,7 @@ public class GameActivity extends AppCompatActivity {
         score -= 100;
         String textScore = "Score: " + score;
 
+        ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(vibration);
         tvScore.setText(textScore);
     }
 

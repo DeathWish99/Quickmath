@@ -11,7 +11,7 @@ import android.widget.Toast;
 public class SettingActivity extends AppCompatActivity {
 
     Button btnProfile, btnLanguage, btnMusic, btnVibrate, btnAboutus;
-    int f = 0,j=0;
+    int f = 0,j=0,intValue;
     AudioManager audioManager;
     /* Bagian FIX BUG MUSIC */
     @Override
@@ -57,11 +57,18 @@ public class SettingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 audioManager = (AudioManager)getSystemService(AUDIO_SERVICE);
                 if (j == 0) {
-                    audioManager.setStreamMute(AudioManager.STREAM_RING, false);
+//                    audioManager.setStreamMute(AudioManager.STREAM_RING, false);
+                    Intent i = new Intent(SettingActivity.this, GameActivity.class);
+                    i.putExtra("intVariableName", 0);
+                    startActivity(i);
                     Toast.makeText(SettingActivity.this, "Vibration Disabled", Toast.LENGTH_SHORT).show();
                     j=1;
                 } else if(j==1){
-                    audioManager.setStreamMute(AudioManager.STREAM_RING, true);
+//                    audioManager.setStreamMute(AudioManager.STREAM_RING, true);
+//                    Intent i = new Intent(getApplicationContext(), GameActivity.class); i.putExtra("new_variable_name",5000); startActivity(i);
+                    Intent i = new Intent(SettingActivity.this, GameActivity.class);
+                    i.putExtra("intVariableName", 5000);
+                    startActivity(i);
                     Toast.makeText(SettingActivity.this, "Vibration Enabled", Toast.LENGTH_SHORT).show();
                     j=0;
                 }
@@ -84,4 +91,10 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
     }
+//    private void startSwitcher() {
+//        yourInt = 5000;
+//        Intent myIntent3 = new Intent(SettingActivity.this, GameActivity.class);
+//        myIntent3.putExtra("yourIntName", yourInt);
+//        startActivity(myIntent3);
+//    }
 }

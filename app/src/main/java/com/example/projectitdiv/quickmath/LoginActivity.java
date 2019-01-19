@@ -8,6 +8,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -69,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Intent svc=new Intent(this, BackgroundSoundService.class);
         startService(svc);
+        ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(5000);
         btnGoogle = findViewById(R.id.btn_google);
         btnFacebook = findViewById(R.id.btn_facebook);
         btnEmail = findViewById(R.id.btn_email);
