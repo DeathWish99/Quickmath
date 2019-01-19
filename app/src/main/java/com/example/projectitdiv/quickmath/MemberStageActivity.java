@@ -16,10 +16,10 @@ public class MemberStageActivity extends AppCompatActivity {
 
     int score = 0;
 
-    String scoreText;
+    String scoreText, EXTRA_ID;
 
     Boolean hasPlayed = false;
-    public static final String EXTRA_ID = "EXTRA_ID";
+    static MemberStageActivity INSTANCE;
     @Override
     public void onPause(){
         amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
@@ -69,64 +69,64 @@ public class MemberStageActivity extends AppCompatActivity {
         stage1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EXTRA_ID = "1";
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
-                intent.putExtra(EXTRA_ID, stage1.getText().toString());
                 startActivity(intent);
             }
         });
         stage2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EXTRA_ID = "2";
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
-                intent.putExtra(EXTRA_ID, stage2.getText().toString());
                 startActivity(intent);
             }
         });
         stage3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EXTRA_ID = "3";
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
-                intent.putExtra(EXTRA_ID, stage3.getText().toString());
                 startActivity(intent);
             }
         });
         stage4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EXTRA_ID = "4";
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
-                intent.putExtra(EXTRA_ID, stage4.getText().toString());
                 startActivity(intent);
             }
         });
         stage5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EXTRA_ID = "5";
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
-                intent.putExtra(EXTRA_ID, stage5.getText().toString());
                 startActivity(intent);
             }
         });
         stage6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EXTRA_ID = "6";
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
-                intent.putExtra(EXTRA_ID, stage6.getText().toString());
                 startActivity(intent);
             }
         });
         stage7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EXTRA_ID = "7";
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
-                intent.putExtra(EXTRA_ID, stage7.getText().toString());
                 startActivity(intent);
             }
         });
         stage8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EXTRA_ID = "8";
                 Intent intent = new Intent(MemberStageActivity.this, GameActivity.class);
-                intent.putExtra(EXTRA_ID, stage8.getText().toString());
                 startActivity(intent);
             }
         });
@@ -151,5 +151,15 @@ public class MemberStageActivity extends AppCompatActivity {
             tvScore.setText(""+score);
 
         }
+    }
+
+    public static MemberStageActivity getActivityInstance()
+    {
+        return INSTANCE;
+    }
+
+    public String getData()
+    {
+        return this.EXTRA_ID;
     }
 }

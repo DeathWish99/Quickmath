@@ -38,9 +38,8 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        Intent intent = getIntent();
         try{
-            stageId = intent.getStringExtra("EXTRA_ID");
+            stageId = MemberStageActivity.getActivityInstance().getData();
         }
         catch (Exception e) {
             stageId = "1";
@@ -579,9 +578,9 @@ public class GameActivity extends AppCompatActivity {
         if(score > 0){
             score -= 100;
             String textScore = "Score: " + score;
-            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(vibration);
             tvScore.setText(textScore);
         }
+        ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(vibration);
     }
 
     protected void StageSelect() {
@@ -597,7 +596,7 @@ public class GameActivity extends AppCompatActivity {
             StageSelect(); //Returns the app back to MemberStageActivity.
         }
         else {
-            if(!stageId.equals("6")) {
+            if(!stageId.equals("5")) {
                 switch (stageId) {
                     case "1":
                         stageId = "2";
@@ -616,9 +615,10 @@ public class GameActivity extends AppCompatActivity {
                         break;
                 }
                 counter = 1;
+                tvCounter.setText(counter + "/10");
                 GenerateQuestion();
                 GenerateAnswers();
-                Toast.makeText(this, "Stage" + stageId, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Stage " + stageId, Toast.LENGTH_SHORT).show();
             }
             else {
                 Intent intent = new Intent(GameActivity.this, LoginActivity.class);
