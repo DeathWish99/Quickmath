@@ -137,5 +137,38 @@
         android:text="8"
         android:textSize="20dp"/>
 
+    <TextView
+        android:id="@+id/txt_score"
+        android:layout_width="95dp"
+        android:layout_height="44dp"
+        android:layout_alignRight="@+id/tv_stage"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="-36dp"
+        android:layout_marginBottom="108dp"
+        android:contentDescription="Score"
+        android:text="@string/score"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <TextView
+        android:id="@+id/tv_level"
+        android:layout_width="95dp"
+        android:layout_height="44dp"
+        android:layout_alignRight="@+id/tv_stage"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="-37dp"
+        android:layout_marginBottom="65dp"
+        android:contentDescription="Score"
+        android:text="@string/level"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <ImageView
+        android:id="@+id/user_avatar"
+        android:layout_width="124dp"
+        android:layout_height="119dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="46dp"
+        android:layout_marginBottom="51dp"
+        android:background="@drawable/button_bg_round"
+        app:srcCompat="@drawable/button_bg_round" />
 
 </RelativeLayout>
