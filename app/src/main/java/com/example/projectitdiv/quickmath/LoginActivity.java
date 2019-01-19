@@ -149,12 +149,5 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-    public void updateUI(FirebaseUser user){
-       GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
-
-       if(account!=null){
-           String name = account.getDisplayName();
-           String email = account.getEmail();
-       }
-    }
+    
 }
