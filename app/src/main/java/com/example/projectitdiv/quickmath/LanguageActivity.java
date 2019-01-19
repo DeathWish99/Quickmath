@@ -22,7 +22,6 @@ public class LanguageActivity extends AppCompatActivity {
     Button btn_indo;
     Button btn_jpn;
     Button btn_korea;
-    /* Bagian FIX BUG MUSIC */
     @Override
     public void onPause(){
         amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
@@ -35,7 +34,6 @@ public class LanguageActivity extends AppCompatActivity {
         amanager.setStreamMute(AudioManager.STREAM_MUSIC, false);
         super.onResume();
     }
-    /*Sampai sini */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

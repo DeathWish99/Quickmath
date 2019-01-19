@@ -38,7 +38,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import java.lang.reflect.Member;
 
 public class LoginActivity extends AppCompatActivity {
-    int ret=0;
     AudioManager amanager;
     Button btnGoogle, btnFacebook, btnMobile, btnEmail, btnSkip;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -50,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }*/
-   /* Bagian FIX BUG MUSIC */
    @Override
    public void onPause(){
        amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
@@ -63,14 +61,12 @@ public class LoginActivity extends AppCompatActivity {
         amanager.setStreamMute(AudioManager.STREAM_MUSIC, false);
         super.onResume();
     }
-    /*Sampai sini */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Intent svc=new Intent(this, BackgroundSoundService.class);
         startService(svc);
-        ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(5000);
         btnGoogle = findViewById(R.id.btn_google);
         btnFacebook = findViewById(R.id.btn_facebook);
         btnEmail = findViewById(R.id.btn_email);
@@ -83,8 +79,6 @@ public class LoginActivity extends AppCompatActivity {
                 signIn();
             }
         });
-
-
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()

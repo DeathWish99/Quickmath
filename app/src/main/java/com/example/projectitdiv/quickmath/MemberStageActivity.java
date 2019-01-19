@@ -20,7 +20,6 @@ public class MemberStageActivity extends AppCompatActivity {
 
     Boolean hasPlayed = false;
     public static final String EXTRA_ID = "EXTRA_ID";
-    /* Bagian FIX BUG MUSIC */
     @Override
     public void onPause(){
         amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
@@ -33,7 +32,6 @@ public class MemberStageActivity extends AppCompatActivity {
         amanager.setStreamMute(AudioManager.STREAM_MUSIC, false);
         super.onResume();
     }
-    /*Sampai sini */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
