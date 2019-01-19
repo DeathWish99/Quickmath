@@ -77,6 +77,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 signIn();
+                Intent intent = new Intent(LoginActivity.this, GuestStageActivity.class);
+                startActivity(intent);
             }
         });
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
