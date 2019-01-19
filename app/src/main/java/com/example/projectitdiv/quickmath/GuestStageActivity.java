@@ -24,8 +24,7 @@ public class GuestStageActivity extends AppCompatActivity {
         btnStage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GuestStageActivity.this, MemberStageActivity.class);
-                intent.putExtra("hasPlayed", false);
+                Intent intent = new Intent(GuestStageActivity.this, GameActivity.class);
                 startActivity(intent);
             }
         });

@@ -42,7 +42,6 @@ public class MemberStageActivity extends AppCompatActivity {
         //Possibly fixable by using a database.
         Intent intent1 = getIntent();
         scoreText = intent1.getStringExtra("EXTRA_SCORE");
-        hasPlayed = intent1.getExtras().getBoolean("hasPlayed");
 
         tvScore = findViewById(R.id.tv_score1);
 

@@ -18,7 +18,8 @@ public class GameActivity extends AppCompatActivity {
     AudioManager amanager;
     TextView tvScore, tvQuestion, tvCounter;
     Button btnAnswer1, btnAnswer2, btnAnswer3, btnAnswer4, btnAnswer5, btnAnswer6;
-    String stageId;
+    String stageId = "1";
+    boolean guest = false;
     int total, counter = 1, score = 0,vibration;
     public static final String EXTRA_SCORE = "EXTRA_SCORE";
     @Override
@@ -38,7 +39,13 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         Intent intent = getIntent();
-        stageId = intent.getStringExtra("EXTRA_ID");
+        try{
+            stageId = intent.getStringExtra("EXTRA_ID");
+        }
+        catch (Exception e) {
+            stageId = "1";
+            guest = true;
+        }
         try {
             vibration=SettingActivity.getActivityInstance().getData();
         } catch (Exception e) {
@@ -89,7 +96,7 @@ public class GameActivity extends AppCompatActivity {
                 }
 
                 if(counter > 10) {
-                    StageSelect(); //Returns the app back to MemberStageActivity.
+                    UserHandler();
                 }
             }
         });
@@ -121,7 +128,7 @@ public class GameActivity extends AppCompatActivity {
                 }
 
                 if(counter > 10) {
-                    StageSelect();
+                    UserHandler();
                 }
             }
         });
@@ -153,7 +160,7 @@ public class GameActivity extends AppCompatActivity {
                 }
 
                 if(counter > 10) {
-                    StageSelect();
+                    UserHandler();
                 }
             }
         });
@@ -185,7 +192,7 @@ public class GameActivity extends AppCompatActivity {
                 }
 
                 if(counter > 10) {
-                    StageSelect();
+                    UserHandler();
                 }
             }
         });
@@ -217,7 +224,7 @@ public class GameActivity extends AppCompatActivity {
                 }
 
                 if(counter > 10) {
-                    StageSelect();
+                    UserHandler();
                 }
             }
         });
@@ -249,7 +256,7 @@ public class GameActivity extends AppCompatActivity {
                 }
 
                 if(counter > 10) {
-                    StageSelect();
+                    UserHandler();
                 }
             }
         });
@@ -279,164 +286,226 @@ public class GameActivity extends AppCompatActivity {
         int muldiv2 = rand.nextInt(9) + 1;
         total = 0;
 
-        if (stageId.equals("1")) {
-            total = n1 + n2;
+        if(guest) {
+            if (stageId.equals("1")) {
+                total = n1 + n2;
 
-            String question = n1 + " + " + n2;
-            tvQuestion.setText(question);
-        } else if (stageId.equals("2")) {
-            int MIN = n2;
-            n1 += MIN;
-            total = n1 - n2;
+                String question = n1 + " + " + n2;
+                tvQuestion.setText(question);
+            } else if (stageId.equals("2")) {
+                int MIN = n2;
+                n1 += MIN;
+                total = n1 - n2;
 
-            String question = n1 + " - " + n2;
-            tvQuestion.setText(question);
+                String question = n1 + " - " + n2;
+                tvQuestion.setText(question);
 
-        } else if (stageId.equals("3")) {
-            total = muldiv1 * muldiv2;
+            } else if (stageId.equals("3")) {
+                total = muldiv1 * muldiv2;
 
-            String question = muldiv1 + " * " + muldiv2;
-            tvQuestion.setText(question);
-        } else if (stageId.equals("4")) {
-            int MIN = muldiv2;
-            muldiv1 *= MIN;
-            total = muldiv1 / muldiv2;
+                String question = muldiv1 + " * " + muldiv2;
+                tvQuestion.setText(question);
+            } else if (stageId.equals("4")) {
+                int MIN = muldiv2;
+                muldiv1 *= MIN;
+                total = muldiv1 / muldiv2;
 
-            String question = muldiv1 + " / " + muldiv2;
-            tvQuestion.setText(question);
-        } else {
-            int quest = rand.nextInt(4); //Determines the type of question (+, -, *, -)
+                String question = muldiv1 + " / " + muldiv2;
+                tvQuestion.setText(question);
+            } else {
+                int quest = rand.nextInt(4); //Determines the type of question (+, -, *, -)
 
-            if(stageId.equals("5")){
-                if (quest == 0) {
-                    total = n1 + n2;
+                if (stageId.equals("5")) {
+                    if (quest == 0) {
+                        total = n1 + n2;
 
-                    String question = n1 + " + " + n2;
-                    tvQuestion.setText(question);
-                } else if (quest == 1) {
-                    int MIN = n2;
-                    n1 += MIN;
-                    total = n1 - n2;
+                        String question = n1 + " + " + n2;
+                        tvQuestion.setText(question);
+                    } else if (quest == 1) {
+                        int MIN = n2;
+                        n1 += MIN;
+                        total = n1 - n2;
 
-                    String question = n1 + " - " + n2;
-                    tvQuestion.setText(question);
+                        String question = n1 + " - " + n2;
+                        tvQuestion.setText(question);
 
-                } else if (quest == 2) {
-                    total = muldiv1 * muldiv2;
+                    } else if (quest == 2) {
+                        total = muldiv1 * muldiv2;
 
-                    String question = muldiv1 + " * " + muldiv2;
-                    tvQuestion.setText(question);
-                } else if (quest == 3) {
-                    int MIN = muldiv2;
-                    muldiv1 *= MIN;
-                    total = muldiv1 / muldiv2;
+                        String question = muldiv1 + " * " + muldiv2;
+                        tvQuestion.setText(question);
+                    } else if (quest == 3) {
+                        int MIN = muldiv2;
+                        muldiv1 *= MIN;
+                        total = muldiv1 / muldiv2;
 
-                    String question = muldiv1 + " / " + muldiv2;
-                    tvQuestion.setText(question);
-                }
-            }
-            else if(stageId.equals("6")) {
-                n1 = rand.nextInt(49) + 50;
-                n2 = rand.nextInt(49) + 50;
-                muldiv1 = rand.nextInt(9) + 10;
-                muldiv2 = rand.nextInt(9) + 10;
-
-                if (quest == 0) {
-                    total = n1 + n2;
-
-                    String question = n1 + " + " + n2;
-                    tvQuestion.setText(question);
-                } else if (quest == 1) {
-                    int MIN = n2;
-                    n1 += MIN;
-                    total = n1 - n2;
-
-                    String question = n1 + " - " + n2;
-                    tvQuestion.setText(question);
-
-                } else if (quest == 2) {
-                    total = muldiv1 * muldiv2;
-
-                    String question = muldiv1 + " * " + muldiv2;
-                    tvQuestion.setText(question);
-                } else if (quest == 3) {
-                    int MIN = muldiv2;
-                    muldiv1 *= MIN;
-                    total = muldiv1 / muldiv2;
-
-                    String question = muldiv1 + " / " + muldiv2;
-                    tvQuestion.setText(question);
-                }
-            }
-
-            else if(stageId.equals("7")) {
-                n1 = rand.nextInt(49) + 100;
-                n2 = rand.nextInt(49) + 100;
-                muldiv1 = rand.nextInt(9) + 30;
-                muldiv2 = rand.nextInt(9) + 30;
-
-                if (quest == 0) {
-                    total = n1 + n2;
-
-                    String question = n1 + " + " + n2;
-                    tvQuestion.setText(question);
-                } else if (quest == 1) {
-                    int MIN = n2;
-                    n1 += MIN;
-                    total = n1 - n2;
-
-                    String question = n1 + " - " + n2;
-                    tvQuestion.setText(question);
-
-                } else if (quest == 2) {
-                    total = muldiv1 * muldiv2;
-
-                    String question = muldiv1 + " * " + muldiv2;
-                    tvQuestion.setText(question);
-                } else if (quest == 3) {
-                    int MIN = muldiv2;
-                    muldiv1 *= MIN;
-                    total = muldiv1 / muldiv2;
-
-                    String question = muldiv1 + " / " + muldiv2;
-                    tvQuestion.setText(question);
-                }
-            }
-
-            else if(stageId.equals("8")) {
-                n1 = rand.nextInt(49) + 200;
-                n2 = rand.nextInt(49) + 200;
-                muldiv1 = rand.nextInt(9) + 50;
-                muldiv2 = rand.nextInt(9) + 50;
-
-                if (quest == 0) {
-                    total = n1 + n2;
-
-                    String question = n1 + " + " + n2;
-                    tvQuestion.setText(question);
-                } else if (quest == 1) {
-                    int MIN = n2;
-                    n1 += MIN;
-                    total = n1 - n2;
-
-                    String question = n1 + " - " + n2;
-                    tvQuestion.setText(question);
-
-                } else if (quest == 2) {
-                    total = muldiv1 * muldiv2;
-
-                    String question = muldiv1 + " * " + muldiv2;
-                    tvQuestion.setText(question);
-                } else if (quest == 3) {
-                    int MIN = muldiv2;
-                    muldiv1 *= MIN;
-                    total = muldiv1 / muldiv2;
-
-                    String question = muldiv1 + " / " + muldiv2;
-                    tvQuestion.setText(question);
+                        String question = muldiv1 + " / " + muldiv2;
+                        tvQuestion.setText(question);
+                    }
                 }
             }
         }
+        else {
+            if (stageId.equals("1")) {
+                total = n1 + n2;
+
+                String question = n1 + " + " + n2;
+                tvQuestion.setText(question);
+            } else if (stageId.equals("2")) {
+                int MIN = n2;
+                n1 += MIN;
+                total = n1 - n2;
+
+                String question = n1 + " - " + n2;
+                tvQuestion.setText(question);
+
+            } else if (stageId.equals("3")) {
+                total = muldiv1 * muldiv2;
+
+                String question = muldiv1 + " * " + muldiv2;
+                tvQuestion.setText(question);
+            } else if (stageId.equals("4")) {
+                int MIN = muldiv2;
+                muldiv1 *= MIN;
+                total = muldiv1 / muldiv2;
+
+                String question = muldiv1 + " / " + muldiv2;
+                tvQuestion.setText(question);
+            } else {
+                int quest = rand.nextInt(4); //Determines the type of question (+, -, *, -)
+
+                if(stageId.equals("5")){
+                    if (quest == 0) {
+                        total = n1 + n2;
+
+                        String question = n1 + " + " + n2;
+                        tvQuestion.setText(question);
+                    } else if (quest == 1) {
+                        int MIN = n2;
+                        n1 += MIN;
+                        total = n1 - n2;
+
+                        String question = n1 + " - " + n2;
+                        tvQuestion.setText(question);
+
+                    } else if (quest == 2) {
+                        total = muldiv1 * muldiv2;
+
+                        String question = muldiv1 + " * " + muldiv2;
+                        tvQuestion.setText(question);
+                    } else if (quest == 3) {
+                        int MIN = muldiv2;
+                        muldiv1 *= MIN;
+                        total = muldiv1 / muldiv2;
+
+                        String question = muldiv1 + " / " + muldiv2;
+                        tvQuestion.setText(question);
+                    }
+                }
+                else if(stageId.equals("6")) {
+                    n1 = rand.nextInt(49) + 50;
+                    n2 = rand.nextInt(49) + 50;
+                    muldiv1 = rand.nextInt(9) + 10;
+                    muldiv2 = rand.nextInt(9) + 10;
+
+                    if (quest == 0) {
+                        total = n1 + n2;
+
+                        String question = n1 + " + " + n2;
+                        tvQuestion.setText(question);
+                    } else if (quest == 1) {
+                        int MIN = n2;
+                        n1 += MIN;
+                        total = n1 - n2;
+
+                        String question = n1 + " - " + n2;
+                        tvQuestion.setText(question);
+
+                    } else if (quest == 2) {
+                        total = muldiv1 * muldiv2;
+
+                        String question = muldiv1 + " * " + muldiv2;
+                        tvQuestion.setText(question);
+                    } else if (quest == 3) {
+                        int MIN = muldiv2;
+                        muldiv1 *= MIN;
+                        total = muldiv1 / muldiv2;
+
+                        String question = muldiv1 + " / " + muldiv2;
+                        tvQuestion.setText(question);
+                    }
+                }
+
+                else if(stageId.equals("7")) {
+                    n1 = rand.nextInt(49) + 100;
+                    n2 = rand.nextInt(49) + 100;
+                    muldiv1 = rand.nextInt(9) + 30;
+                    muldiv2 = rand.nextInt(9) + 30;
+
+                    if (quest == 0) {
+                        total = n1 + n2;
+
+                        String question = n1 + " + " + n2;
+                        tvQuestion.setText(question);
+                    } else if (quest == 1) {
+                        int MIN = n2;
+                        n1 += MIN;
+                        total = n1 - n2;
+
+                        String question = n1 + " - " + n2;
+                        tvQuestion.setText(question);
+
+                    } else if (quest == 2) {
+                        total = muldiv1 * muldiv2;
+
+                        String question = muldiv1 + " * " + muldiv2;
+                        tvQuestion.setText(question);
+                    } else if (quest == 3) {
+                        int MIN = muldiv2;
+                        muldiv1 *= MIN;
+                        total = muldiv1 / muldiv2;
+
+                        String question = muldiv1 + " / " + muldiv2;
+                        tvQuestion.setText(question);
+                    }
+                }
+
+                else if(stageId.equals("8")) {
+                    n1 = rand.nextInt(49) + 200;
+                    n2 = rand.nextInt(49) + 200;
+                    muldiv1 = rand.nextInt(9) + 50;
+                    muldiv2 = rand.nextInt(9) + 50;
+
+                    if (quest == 0) {
+                        total = n1 + n2;
+
+                        String question = n1 + " + " + n2;
+                        tvQuestion.setText(question);
+                    } else if (quest == 1) {
+                        int MIN = n2;
+                        n1 += MIN;
+                        total = n1 - n2;
+
+                        String question = n1 + " - " + n2;
+                        tvQuestion.setText(question);
+
+                    } else if (quest == 2) {
+                        total = muldiv1 * muldiv2;
+
+                        String question = muldiv1 + " * " + muldiv2;
+                        tvQuestion.setText(question);
+                    } else if (quest == 3) {
+                        int MIN = muldiv2;
+                        muldiv1 *= MIN;
+                        total = muldiv1 / muldiv2;
+
+                        String question = muldiv1 + " / " + muldiv2;
+                        tvQuestion.setText(question);
+                    }
+                }
+            }
+        }
+
     }
     //Generates possible answers.
     protected void GenerateAnswers() {
@@ -507,10 +576,12 @@ public class GameActivity extends AppCompatActivity {
     }
 
     protected void DecreaseScore() {
-        score -= 100;
-        String textScore = "Score: " + score;
-        ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(vibration);
-        tvScore.setText(textScore);
+        if(score > 0){
+            score -= 100;
+            String textScore = "Score: " + score;
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(vibration);
+            tvScore.setText(textScore);
+        }
     }
 
     protected void StageSelect() {
@@ -519,6 +590,43 @@ public class GameActivity extends AppCompatActivity {
         intent1.putExtra("hasPlayed", true);
         startActivity(intent1);
         finish();
+    }
+
+    protected  void UserHandler() {
+        if(!guest){
+            StageSelect(); //Returns the app back to MemberStageActivity.
+        }
+        else {
+            if(!stageId.equals("6")) {
+                switch (stageId) {
+                    case "1":
+                        stageId = "2";
+                        break;
+                    case "2":
+                        stageId = "3";
+                        break;
+                    case "3":
+                        stageId = "4";
+                        break;
+                    case "4":
+                        stageId = "5";
+                        break;
+                    case "5":
+                        stageId = "6";
+                        break;
+                }
+                counter = 1;
+                GenerateQuestion();
+                GenerateAnswers();
+                Toast.makeText(this, "Stage" + stageId, Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Intent intent = new Intent(GameActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
+        }
     }
 //    private void customVibratePatternCorrect() {
 //        // 0 : Start without a delay
