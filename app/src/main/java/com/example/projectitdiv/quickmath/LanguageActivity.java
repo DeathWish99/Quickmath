@@ -65,7 +65,16 @@ public class LanguageActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(LanguageActivity.this, SettingActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 
     //    public void setLocale(String lang) {
 //        Locale myLocale = new Locale(lang);
