@@ -41,7 +41,7 @@ public class SettingActivity extends AppCompatActivity {
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SettingActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(SettingActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
