@@ -28,4 +28,5 @@ public class ProfileActivity extends AppCompatActivity {
     String name = account.getDisplayName();
     String email = account.getEmail();
 
+    tvName.setText(name);
 }
