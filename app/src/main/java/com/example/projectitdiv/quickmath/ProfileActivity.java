@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+
 public class ProfileActivity extends AppCompatActivity {
 
     TextView tvName, tvEmail, tvGender;
@@ -19,4 +22,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         
     }
+
+    GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
+
+    String name = account.getDisplayName();
+    String email = account.getEmail();
+    
 }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Vibrator;
@@ -36,6 +37,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import java.lang.reflect.Member;
+import java.sql.Connection;
+import java.sql.Driver;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 public class LoginActivity extends AppCompatActivity {
     AudioManager amanager;
@@ -44,6 +49,11 @@ public class LoginActivity extends AppCompatActivity {
     private final static int RC_SIGN_IN = 2;
     GoogleApiClient mGoogleApiClient;
     FirebaseAuth.AuthStateListener mAuthListener;
+
+    private static final String DB_URL  = "jdbc:mysql://192.168.0/106/member";
+    private static final String USER = "admin";
+    private static final String PASS = "admin";
+
    /* @Override
     protected void onStart() {
         super.onStart();
@@ -85,6 +95,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 signIn();
+                btnconn();
                 Intent intent = new Intent(LoginActivity.this, MemberStageActivity.class);
                 startActivity(intent);
             }
@@ -165,12 +176,50 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-    public void updateUI(FirebaseUser user){
-       GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
-
-       if(account!=null){
-           String name = account.getDisplayName();
-           String email = account.getEmail();
-       }
+    public void btnconn(){
+        Send objSend = new Send();
+        objSend.execute();
     }
+
+    private class Send extends AsyncTask<String, String, String>
+    {
+        String msg = "";
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
+
+        String name = account.getDisplayName();
+        String email = account.getEmail();
+
+        @Override
+        protected void onPreExecute() {
+            Toast.makeText(LoginActivity.this,"Please wait inserting data into database",Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            try{
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection(DB_URL,USER, PASS);
+                if(conn == null) {
+                    msg = "connection goes wrong";
+                }else{
+                    String query = "INSERT INTO member(Name,Email) VALUES ('"+name+email+"')";
+                    Statement stmt = conn.createStatement();
+                    stmt.executeUpdate(query);
+                    msg = "Inserting data into database succeeded";
+                }
+                conn.close();
+            }
+            catch (Exception e){
+                msg = "connection goes wrong";
+                e.printStackTrace();
+            }
+            return msg;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            Toast.makeText(LoginActivity.this,msg,Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
