@@ -57,12 +57,12 @@
         android:text="Music: www.bensound.com" />
 
     <Button
-        android:id="@+id/btn_aboutus"
+        android:id="@+id/btn_credits"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="100dp"
-        android:text="@string/aboutus" />
+        android:text="@string/credits" />
 
 
 </LinearLayout>

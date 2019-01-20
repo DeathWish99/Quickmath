@@ -12,8 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PopEmail"
-            android:theme="@style/AppTheme.PopupTheme"></activity>
+        <activity android:name=".CreditsActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity
+            android:name=".PopEmail"
+            android:theme="@style/AppTheme.PopupTheme" />
         <activity android:name=".GuestStageActivity" />
         <activity android:name=".MemberStageActivity" />
         <activity android:name=".GameActivity" />

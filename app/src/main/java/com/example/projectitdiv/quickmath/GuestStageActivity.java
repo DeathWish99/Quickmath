@@ -26,6 +26,7 @@ public class GuestStageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GuestStageActivity.this, GameActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

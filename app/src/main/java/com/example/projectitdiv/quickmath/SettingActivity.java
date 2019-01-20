@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 public class SettingActivity extends AppCompatActivity {
 
-    Button btnProfile, btnLanguage, btnMusic, btnVibrate, btnAboutus;
+    Button btnProfile, btnLanguage, btnMusic, btnVibrate, btnCredits;
     int f ,j,data;
     AudioManager audioManager;
     static SettingActivity INSTANCE;
@@ -37,11 +37,11 @@ public class SettingActivity extends AppCompatActivity {
         btnLanguage = findViewById(R.id.btn_language);
         btnMusic = findViewById(R.id.btn_music);
         btnVibrate = findViewById(R.id.btn_vibrate);
-        btnAboutus = findViewById(R.id.btn_aboutus);
+        btnCredits = findViewById(R.id.btn_credits);
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SettingActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(SettingActivity.this, ProfileActivity.class);
                 startActivity(intent);
             }
         });
@@ -81,6 +81,13 @@ public class SettingActivity extends AppCompatActivity {
                     Toast.makeText(SettingActivity.this, "Music Enabled", Toast.LENGTH_SHORT).show();
                     f=0;
                 }
+            }
+        });
+
+        btnCredits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SettingActivity.this, CreditsActivity.class));
             }
         });
     }
