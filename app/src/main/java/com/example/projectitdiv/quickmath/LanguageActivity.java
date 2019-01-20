@@ -96,4 +96,3 @@ public class LanguageActivity extends AppCompatActivity {
         setLocale(language);
     }
 }
-
