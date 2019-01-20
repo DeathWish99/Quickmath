@@ -26,6 +26,14 @@ public class SettingActivity extends AppCompatActivity {
         audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
         super.onResume();
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(SettingActivity.this, GuestStageActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         INSTANCE=this;

@@ -38,6 +38,7 @@ public class GuestStageActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     public void onPause(){
         amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
