@@ -2,7 +2,6 @@ package com.example.projectitdiv.quickmath;
 
 import android.content.SharedPreferences;
 import android.os.Build;
-import android.media.AudioManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import java.util.Locale;
@@ -17,23 +16,12 @@ import android.widget.Button;
 
 
 public class LanguageActivity extends AppCompatActivity {
-    AudioManager amanager;
+
     Button btn_english;
     Button btn_indo;
     Button btn_jpn;
     Button btn_korea;
-    @Override
-    public void onPause(){
-        amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
-        amanager.setStreamMute(AudioManager.STREAM_MUSIC, true);
-        super.onPause();
-    }
-    @Override
-    public void onResume(){
-        amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
-        amanager.setStreamMute(AudioManager.STREAM_MUSIC, false);
-        super.onResume();
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,28 +79,12 @@ public class LanguageActivity extends AppCompatActivity {
 //        startActivity(refresh);
 //    }
 
-    @SuppressWarnings("deprecation")
     private void setLocale(String lang){
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);
-        Resources resources = getResources();
-        //Configuration config = new Configuration();
-        Configuration config = resources.getConfiguration();
-        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
-            config.setLocale(locale);
-        }
-        else{
-            config.locale=locale;
-        }
-
-        //getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-            getApplicationContext().createConfigurationContext(config);
-        } else {
-            resources.updateConfiguration(config,displayMetrics);
-        }
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
         editor.putString("My_Lang", lang);
         editor.apply();
@@ -124,4 +96,3 @@ public class LanguageActivity extends AppCompatActivity {
         setLocale(language);
     }
 }
-
