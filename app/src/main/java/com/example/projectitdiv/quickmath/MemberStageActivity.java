@@ -36,8 +36,8 @@ public class MemberStageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memberstage);
-
-
+        INSTANCE = this;
+        EXTRA_ID = null;
         //Doesn't work as intended. The tvScore text will reset to 0 after we exit the activity.
         //Possibly fixable by using a database.
         Intent intent1 = getIntent();
