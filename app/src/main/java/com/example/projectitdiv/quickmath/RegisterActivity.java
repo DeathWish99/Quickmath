@@ -1,14 +1,15 @@
 package com.example.projectitdiv.quickmath;
 
-import android.content.Intent;
 import android.media.AudioManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 
-public class ProfileActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     AudioManager amanager;
-    EditText etName, etGender, etFacebook, etPhone, etEmail;
+    EditText etName, etGender, etEmail;
+    Button btnSubmit;
     @Override
     public void onPause(){
         amanager = (AudioManager)getSystemService(AUDIO_SERVICE);
@@ -24,12 +25,13 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_register);
 
         etName = findViewById(R.id.et_name);
         etGender = findViewById(R.id.et_gender);
-        etFacebook = findViewById(R.id.et_facebook);
-        etPhone = findViewById(R.id.et_phone);
         etEmail = findViewById(R.id.et_email);
+        btnSubmit = findViewById(R.id.btn_submit);
+
+
     }
 }

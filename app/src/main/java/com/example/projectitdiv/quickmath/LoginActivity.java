@@ -39,7 +39,7 @@ import java.lang.reflect.Member;
 
 public class LoginActivity extends AppCompatActivity {
     AudioManager amanager;
-    Button btnGoogle, btnFacebook, btnMobile, btnEmail, btnSkip;
+    Button btnGoogle, btnRegister, btnEmail, btnSkip;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private final static int RC_SIGN_IN = 2;
     GoogleApiClient mGoogleApiClient;
@@ -68,11 +68,19 @@ public class LoginActivity extends AppCompatActivity {
         Intent svc=new Intent(this, BackgroundSoundService.class);
         startService(svc);
         btnGoogle = findViewById(R.id.btn_google);
-        btnFacebook = findViewById(R.id.btn_facebook);
+        btnRegister = findViewById(R.id.btn_register);
         btnEmail = findViewById(R.id.btn_email);
-        btnMobile = findViewById(R.id.btn_mobile);
         btnSkip = findViewById(R.id.btn_skip);
         mAuth = FirebaseAuth.getInstance();
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,6 +104,12 @@ public class LoginActivity extends AppCompatActivity {
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();
 
+        btnEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, PopEmail.class));
+            }
+        });
 
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
